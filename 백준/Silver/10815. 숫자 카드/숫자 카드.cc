@@ -4,6 +4,10 @@
 #include <algorithm>
 
 int main() {
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(0);
+	std::cout.tie(0);
+
 	int user_cards, all_cards;
 	
 	std::cin >> user_cards;
@@ -20,6 +24,7 @@ int main() {
 	std::cin >> all_cards;
 
 	std::vector<int> all_card_list;
+	all_card_list.reserve(all_cards);
 
 	for (int i = 0; i < all_cards; i++) {
 		int input_num;
@@ -31,13 +36,9 @@ int main() {
 	for (int i = 0; i < all_cards; i++) {
 		auto item = user_card_map.find(all_card_list[i]);
 		if (item != user_card_map.end()) {
-			bitmap.push_back(1);
+			std::cout << "1 ";
 		}
 		else
-			bitmap.push_back(0);
-	}
-
-	for (auto j : bitmap) {
-		std::cout << j << " ";
+			std::cout << "0 ";;
 	}
 }
